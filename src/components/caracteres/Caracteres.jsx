@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CaractereBox from "../caractereBox/CaractereBox";
 
 const Caracteres = ({onData}) => {
-
+    
+    const [caracteresEscolhidos, setCaracteresEscolhidos] = useState([])
+    let indexCaracter = 0
     const caracteres = []
     
     for (let i = 48; i <= 57; i++) {
@@ -12,7 +15,7 @@ const Caracteres = ({onData}) => {
     }
 
     
-    function gerarCaracteres(){
+    const gerarCaracteres = () => {
         const escolhidos = []
         for(let i =0; i<5; i++){
             escolhidos.push(caracteres[Math.floor(Math.random() * 36)])
@@ -21,10 +24,37 @@ const Caracteres = ({onData}) => {
         return escolhidos
     }
 
+    const teclaPressionada = (e) =>{
+        if(e.key == caracteresEscolhidos[indexCaracter]){
+            console.log(e.key)
+            indexCaracter++
+        }else{
+            console.log("errou")
+        }
+    }
+
     useEffect(()=>{
-        const caracteresEscolhidos = gerarCaracteres()
-        onData(caracteresEscolhidos)
+        const caracteresGerados = gerarCaracteres()
+        setCaracteresEscolhidos(caracteresGerados)
     },[])
+
+    useEffect(()=>{
+        console.log(caracteresEscolhidos)
+        
+        window.addEventListener('keydown', teclaPressionada)
+
+        return () => {
+          window.removeEventListener('keydown', teclaPressionada)
+        };
+    }, [caracteresEscolhidos])
+
+    return(
+        <div>
+            {caracteresEscolhidos.map((caracter, index) => (
+                <CaractereBox key={index} caractere={caracter} />
+            ))}
+        </div>
+    )
 }
  
 export default Caracteres;
