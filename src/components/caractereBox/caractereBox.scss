@@ -2,7 +2,7 @@
 
 .caractere{
     border: 5px solid variables.$purple-principal;
-    border-radius: 5px;
+    border-radius: 50%;
     width: 100px;
     height: 100px;
     display: flex;
@@ -10,4 +10,8 @@
     justify-content: center;
     font-weight: bold;
     font-size: 3em;
+
+    &--certo{
+        background-color: green;
+    }
 }

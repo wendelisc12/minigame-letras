@@ -4,7 +4,8 @@ import CaractereBox from "../caractereBox/CaractereBox";
 const Caracteres = ({onData}) => {
     
     const [caracteresEscolhidos, setCaracteresEscolhidos] = useState([])
-    let indexCaracter = 0
+    const [caracteresCorretos, setCaracteresCorretos] = useState([])
+    const [indexCaracter, setIndexCaracter] = useState(0)
     const caracteres = []
     
     for (let i = 48; i <= 57; i++) {
@@ -26,32 +27,32 @@ const Caracteres = ({onData}) => {
 
     const teclaPressionada = (e) =>{
         if(e.key == caracteresEscolhidos[indexCaracter]){
-            console.log(e.key)
-            indexCaracter++
+            setCaracteresCorretos(prevState => [...prevState, indexCaracter])
+            setIndexCaracter(prevIndex => prevIndex + 1);
         }else{
             console.log("errou")
         }
     }
 
     useEffect(()=>{
-        const caracteresGerados = gerarCaracteres()
-        setCaracteresEscolhidos(caracteresGerados)
+        const caracteresGerados = gerarCaracteres();
+        setCaracteresEscolhidos(caracteresGerados);
+        setCaracteresCorretos([]);
+        setIndexCaracter(0);
     },[])
 
-    useEffect(()=>{
-        console.log(caracteresEscolhidos)
-        
+    useEffect(()=>{        
         window.addEventListener('keydown', teclaPressionada)
 
         return () => {
           window.removeEventListener('keydown', teclaPressionada)
         };
-    }, [caracteresEscolhidos])
+    }, [indexCaracter,caracteresEscolhidos])
 
     return(
         <div>
             {caracteresEscolhidos.map((caracter, index) => (
-                <CaractereBox key={index} caractere={caracter} />
+                <CaractereBox key={index} caractere={caracter} certo={caracteresCorretos.includes(index)}/>
             ))}
         </div>
     )

@@ -1,11 +1,7 @@
 import "./caractereBox.scss"
 
-const CaractereBox = ({caractere}) => {
-    return ( 
-        <div className="caractere">
-            {caractere}
-        </div>
-     );
+const CaractereBox = ({caractere, certo}) => {
+    return <div className={certo ? "caractere caractere--certo" : "caractere"}>{caractere}</div>
 }
  
 export default CaractereBox;
