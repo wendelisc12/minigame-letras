@@ -13,5 +13,7 @@
 }
 
 body{
-  background-color: variables.$bg-principal;
+  background: radial-gradient(#242122, #131112) no-repeat;
+  height: 100vh;
+  overflow-y: hidden;
 }
