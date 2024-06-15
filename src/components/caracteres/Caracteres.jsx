@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import CaractereBox from "../caractereBox/CaractereBox";
+import {motion} from "framer-motion"
+import "./caracteres.scss"
 
 const Caracteres = ({onData}) => {
     
@@ -18,7 +20,7 @@ const Caracteres = ({onData}) => {
     
     const gerarCaracteres = () => {
         const escolhidos = []
-        for(let i =0; i<5; i++){
+        for(let i =0; i<6; i++){
             escolhidos.push(caracteres[Math.floor(Math.random() * 36)])
         }
 
@@ -30,15 +32,19 @@ const Caracteres = ({onData}) => {
             setCaracteresCorretos(prevState => [...prevState, indexCaracter])
             setIndexCaracter(prevIndex => prevIndex + 1);
         }else{
-            console.log("errou")
+            iniciarGame()
         }
     }
 
-    useEffect(()=>{
+    const iniciarGame =()=>{
         const caracteresGerados = gerarCaracteres();
         setCaracteresEscolhidos(caracteresGerados);
         setCaracteresCorretos([]);
         setIndexCaracter(0);
+    }
+
+    useEffect(()=>{
+        iniciarGame()
     },[])
 
     useEffect(()=>{        
@@ -50,11 +56,15 @@ const Caracteres = ({onData}) => {
     }, [indexCaracter,caracteresEscolhidos])
 
     return(
-        <div>
+        <motion.div 
+        initial={{ y: 600, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="caracteres_row">
             {caracteresEscolhidos.map((caracter, index) => (
                 <CaractereBox key={index} caractere={caracter} certo={caracteresCorretos.includes(index)}/>
             ))}
-        </div>
+        </motion.div>
     )
 }
  
