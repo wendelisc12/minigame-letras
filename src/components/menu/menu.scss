@@ -1,0 +1,23 @@
+.menu{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &_box{
+        background-color: white;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 10px;
+        flex-direction: column;
+
+        &_titulo{
+            color: #1d1d1d;
+            margin-bottom: 40px;
+        }
+    }
+}
