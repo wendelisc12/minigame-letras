@@ -1,8 +1,8 @@
 @use "../../variables";
 
 .caractere{
-    border: 5px solid variables.$purple-principal;
-    border-radius: 50%;
+    border: 5px solid variables.$principal-color;
+    border-radius: 5px;
     width: 100px;
     height: 100px;
     display: flex;
@@ -12,6 +12,6 @@
     font-size: 3em;
 
     &--certo{
-        background-color: green;
+        background-color: variables.$principal-color;
     }
 }
