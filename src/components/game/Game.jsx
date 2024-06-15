@@ -1,19 +1,25 @@
 import { useState } from "react";
 import Caracteres from "../caracteres/Caracteres";
+import Menu from "../menu/Menu";
+import { AnimatePresence } from 'framer-motion';
 
 const Game = () => {
 
-    const [caracteresEscolhidos, setCaracteresEscolhidos] = useState([])
+    const [showMenu, setShowMenu] = useState(true);
 
-    const handleCaracteres = (data) =>{
-        setCaracteresEscolhidos(data)
+    const handleStart = () => {
+        setShowMenu(false);
     }
-
-    console.log(caracteresEscolhidos)
     
     return ( 
         <>
-            <Caracteres onData={handleCaracteres}/>
+            <AnimatePresence>
+                {showMenu ? (
+                    <Menu key="menu" onStart={handleStart} />
+                ) : (
+                    <Caracteres key="caracteres" />
+                )}
+            </AnimatePresence>
         </>
      );
 }
