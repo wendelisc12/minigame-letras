@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "./gameOver.scss"
 import Ranking from "../ranking/Ranking";
 
-const GameOver = ({ onRestart, onMenu, pontos, nome }) => {
+const GameOver = ({ onRestart, onMenu, pontos }) => {
     return (
         <motion.div
             initial={{ y: 600, opacity: 0 }}

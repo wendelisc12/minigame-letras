@@ -14,15 +14,89 @@
     }
 
     &_tabela{
-        border: 1px solid red;
         width: 100%;
         color: #1d1d1d;
-        margin-top: 5px;
+        margin-top: 15px;
+        display: flex;
+            flex-direction: column;
+            height: 70%;
 
-        th{
-            border: 1px solid red;
-            color: #1d1d1d;
-            text-transform: uppercase;
+        &_loading{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        &_header{
+            display: flex;
+            &_titulo{
+                flex: 3;
+                border:  1px solid rgb(39, 39, 39);
+                text-align: center;
+                color: #1d1d1d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+
+                &_clas{
+                    border:  1px solid rgb(39, 39, 39);
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 3px 0;
+                    svg{
+                        fill: #FFD700;
+                    }
+                }
+            }
+                
+        }
+
+        &_data{
+            display: flex;
+
+            &_dado{
+                border-bottom: 1px solid rgb(39, 39, 39);
+                flex: 3;
+                text-align: center;
+                color: #1d1d1d;
+                padding: 10px 0;
+                text-transform: uppercase;
+                font-weight: bold;
+
+                &_pontos{
+                    color: #601e6d;
+                }
+
+                &_clas{
+                    border-bottom: 1px solid rgb(39, 39, 39);
+                    flex: 1;
+                    color: #1d1d1d;
+                    text-align: center;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &--1{
+                        background-color: #FFD700;
+                        color: white;
+                    }
+
+                    &--2{
+                        background-color: #CD7F32;
+                        color: #fff;
+                    }
+
+                    &--3{
+                        background-color: #C0C0C0;
+                        color: #fff;
+                    }
+                }
+            }
         }
     }
 }

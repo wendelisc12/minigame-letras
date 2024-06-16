@@ -26,7 +26,6 @@ const Menu = ({onStart}) => {
 
                 <div className='menu_box_buttons'>
                     <button className='menu_box_buttons_comecar' onClick={() => {onStart(nomePlayer)}}>jogar</button>
-                    <button className='menu_box_buttons_comecar' onClick={onStart}>ranking</button>
                 </div>
             </div>
         </motion.div>

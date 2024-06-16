@@ -11,7 +11,7 @@ const Game = () => {
     const [player, setPlayer] = useState("visitante")
     const [pontos, setPontos] = useState(0)
 
-    const handleMenu = () =>{
+    const handleMenu = () => {
         setShowMenu(true)
         setShowGameOver(false)
     }
@@ -21,7 +21,7 @@ const Game = () => {
         setPlayer(data)
     }
 
-    const handleEnd = (end) =>{
+    const handleEnd = (end) => {
         setShowGameOver(end.end)
         setPontos(end.pontos)
     }
@@ -31,19 +31,19 @@ const Game = () => {
         setShowMenu(false)
         setPontos(0)
     }
-    return ( 
+    return (
         <>
             <AnimatePresence>
-            {showMenu ? (
+                {showMenu ? (
                     <Menu key="menu" onStart={handleStart} />
                 ) : showGameOver ? (
-                    <GameOver key="gameover" onRestart={handleRestart} onMenu={handleMenu} pontos={pontos} player={player}/>
+                    <GameOver key="gameover" onRestart={handleRestart} onMenu={handleMenu} pontos={pontos} player={player} />
                 ) : (
-                    <Caracteres key="caracteres" onData={handleEnd} />
+                    <Caracteres key="caracteres" onData={handleEnd} nome={player}/>
                 )}
             </AnimatePresence>
         </>
-     );
+    );
 }
- 
+
 export default Game;
