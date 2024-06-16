@@ -1,5 +1,10 @@
 import axios from "axios"
 
 export default axios.create({
-    baseURL: 'https://sequenciarapida-server-h7p8fqzqa-wendelisc12s-projects.vercel.app/'
+    baseURL: 'https://sequencia-rapida-server.onrender.com/',
+    headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    }
 })
