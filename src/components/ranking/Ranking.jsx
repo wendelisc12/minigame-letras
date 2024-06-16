@@ -5,22 +5,27 @@ import {BeatLoader} from "react-spinners"
 
 import api from "../../api/api"
 
-const Ranking = () => {
+const Ranking = ({ updateRanking }) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        api.get('/')
-            .then(response => {
+    const fetchRanking = () => {
+        api.get("/")
+            .then((response) => {
                 setData(response.data)
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error)
             })
-            .finally(()=>{
+            .finally(() => {
                 setLoading(false)
             })
-    }, [])
+    }
+
+    useEffect(() => {
+        fetchRanking()
+    }, [updateRanking])
+
     return (
         <div className="rank">
             <h1 className="rank_titulo">Ranking</h1>

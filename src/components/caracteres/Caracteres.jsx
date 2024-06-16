@@ -5,7 +5,7 @@ import api from "../../api/api";
 import "./caracteres.scss"
 import TempoProgresso from "../tempoProgresso/TempoProgresso";
 
-const Caracteres = ({ onData, nome }) => {
+const Caracteres = ({ onData, nome, atualizarRanking }) => {
 
     const [caracteresEscolhidos, setCaracteresEscolhidos] = useState([])
     const [caracteresCorretos, setCaracteresCorretos] = useState([])
@@ -57,6 +57,7 @@ const Caracteres = ({ onData, nome }) => {
         }
         try {
             const response = await api.post("/adicionar", { nome, pontos })
+            atualizarRanking()
         } catch (error) {
             console.log(error)
         }

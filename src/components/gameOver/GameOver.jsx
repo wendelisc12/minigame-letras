@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "./gameOver.scss"
 import Ranking from "../ranking/Ranking";
 
-const GameOver = ({ onRestart, onMenu, pontos }) => {
+const GameOver = ({ onRestart, onMenu, pontos , updateRanking }) => {
     return (
         <motion.div
             initial={{ y: 600, opacity: 0 }}
@@ -24,7 +24,7 @@ const GameOver = ({ onRestart, onMenu, pontos }) => {
                     <h2 className="gameover_box_pontuacao_texto">Você fez <span className="gameover_box_pontuacao_texto_pontos">{pontos}</span> pontos</h2>
                 </div>
 
-                <Ranking />
+                <Ranking  updateRanking={updateRanking}/>
             </div>
         </motion.div>
     );

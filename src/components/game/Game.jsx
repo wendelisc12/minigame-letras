@@ -10,6 +10,7 @@ const Game = () => {
     const [showGameOver, setShowGameOver] = useState(false)
     const [player, setPlayer] = useState("visitante")
     const [pontos, setPontos] = useState(0)
+    const [updateRanking, setUpdateRanking] = useState(false)
 
     const handleMenu = () => {
         setShowMenu(true)
@@ -31,15 +32,18 @@ const Game = () => {
         setShowMenu(false)
         setPontos(0)
     }
+    const atualizarRanking = () => {
+        setUpdateRanking((prev) => !prev)
+    }
     return (
         <>
             <AnimatePresence>
                 {showMenu ? (
                     <Menu key="menu" onStart={handleStart} />
                 ) : showGameOver ? (
-                    <GameOver key="gameover" onRestart={handleRestart} onMenu={handleMenu} pontos={pontos} player={player} />
+                    <GameOver key="gameover" onRestart={handleRestart} onMenu={handleMenu} pontos={pontos} player={player} updateRanking={updateRanking} />
                 ) : (
-                    <Caracteres key="caracteres" onData={handleEnd} nome={player}/>
+                    <Caracteres key="caracteres" onData={handleEnd} nome={player} atualizarRanking={atualizarRanking} />
                 )}
             </AnimatePresence>
         </>
