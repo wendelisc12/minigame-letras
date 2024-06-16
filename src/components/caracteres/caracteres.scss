@@ -1,5 +1,28 @@
-.caracteres_row{
+.caracteres{
+    flex-direction: column;
     display: flex;
-    gap: 20px;
     height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    &_box{
+        
+        &_row{
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+    }
+
+    &_pontos{
+        position: absolute;
+        top: 30px;
+        
+        h1{
+            font-size: 2em;
+        }
+    }
+
 }
