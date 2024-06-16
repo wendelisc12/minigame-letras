@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Rubik", sans-serif;
   color: white;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,7 +13,7 @@
 }
 
 body{
-  background: radial-gradient(#242122, #131112) no-repeat;
+  background: radial-gradient(variables.$gradient-lighter, variables.$gradient-darker) no-repeat;
   height: 100vh;
   overflow-y: hidden;
 }
