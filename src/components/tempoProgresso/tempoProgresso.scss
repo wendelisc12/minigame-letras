@@ -1,0 +1,17 @@
+@use "../../variables";
+
+.barra{
+    width: 100%;
+    height: 15px;
+    background-color: rgba(29, 29, 29, 0.418);
+    border-radius: 20px;
+
+
+    &_progresso{
+        width: 0%;
+        height: 100%;
+        background-color: variables.$principal-color;
+        transition: width 400ms;
+        border-radius: 20px;
+    }
+}
