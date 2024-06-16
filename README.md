@@ -1,8 +1,15 @@
-# React + Vite
+# Sequência rápida
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Minigame onde o usuário precisa digitar na sequência no menor tempo possível, quanto mais pontos conseguir maior a sua posição no ranking
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Linguagem de Programação: Javascript
+- Frameworks: React, Vite
+- Backend: [https://github.com/wendelisc12/sequencia-rapida-server]
+
+## Instalação
+```shell
+npm i
+npm run dev
+
