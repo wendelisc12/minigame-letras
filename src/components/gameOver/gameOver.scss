@@ -1,0 +1,70 @@
+@use "../../variables";
+
+.gameover {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &_box {
+        background: white;
+        box-shadow: 5px 5px 0 rgb(15, 15, 15);
+        height: 500px;
+        width: 450px;
+        display: flex;
+        align-items: center;
+        padding: 40px 20px;
+        flex-direction: column;
+
+        &_header {
+            border-bottom: 1px solid rgb(117, 117, 117);
+            padding-bottom: 20px;
+            width: 100%;
+
+            &_titulo {
+                color: variables.$principal-color;
+                text-shadow: 2px 2px 0 #601e6d;
+                font-size: 2.5em;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            &_subtitulo{
+                color: #601e6d;
+                text-align: center;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        }
+
+        &_buttons {
+            display: flex;
+            padding-top: 20px;
+            justify-content: space-between;
+            width: 100%;
+
+            &_button{
+                @include variables.button_padrao();
+            }
+
+        }
+
+        &_pontuacao{
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(117, 117, 117);
+            width: 100%;
+
+            &_texto{
+                text-transform: uppercase;
+                color: #1d1d1d;
+                text-align: center;
+                
+
+                &_pontos{
+                    color: variables.$principal-color;
+                }
+            }
+        }
+    }
+}
