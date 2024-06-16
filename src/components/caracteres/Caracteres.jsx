@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import CaractereBox from "../caractereBox/CaractereBox";
 import { motion } from "framer-motion"
+import api from "../../api/api";
 import "./caracteres.scss"
 import TempoProgresso from "../tempoProgresso/TempoProgresso";
 
-const Caracteres = ({ onData }) => {
+const Caracteres = ({ onData, nome }) => {
 
     const [caracteresEscolhidos, setCaracteresEscolhidos] = useState([])
     const [caracteresCorretos, setCaracteresCorretos] = useState([])
@@ -50,13 +51,25 @@ const Caracteres = ({ onData }) => {
         setEndGame(false);
     }
 
+    const addPlayer = async () => {
+        if(nome == ""){
+            nome = "visitante"
+        }
+        try {
+            const response = await api.post("/adicionar", { nome, pontos })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const fimGame = (isEnd) => {
         setEndTime(isEnd)
     }
 
     useEffect(() => {
         if (endGame || endTime) {
-            onData({end: true, pontos: pontos});
+            onData({ end: true, pontos: pontos });
+            addPlayer()
         }
     }, [endGame, endTime, onData]);
 
@@ -88,9 +101,9 @@ const Caracteres = ({ onData }) => {
 
             className="caracteres">
 
-                <div className="caracteres_pontos">
-                    <h1>{pontos}</h1>
-                </div>
+            <div className="caracteres_pontos">
+                <h1>{pontos}</h1>
+            </div>
 
             <div className="caracteres_box">
 
